@@ -8,6 +8,7 @@ import FormInput from "../form-input/form-input.component";
 import Button from "../button/button.component";
 import './sign-up-form.styles.scss';
 
+
 const defaultFormFields = {
   displayName: "",
   email: "",
@@ -19,12 +20,14 @@ const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
+ 
+  console.log('hit');
   const resetFormFiels = () => {
     setFormFields(defaultFormFields);
   };
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (password != confirmPassword) {
+    if (password !== confirmPassword) {
       alert("passwords donot match");
       return;
     }
@@ -90,7 +93,7 @@ const SignUpForm = () => {
           value={confirmPassword}
         />
 
-        <Button type="submit">Sing Up</Button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </div>
   );
