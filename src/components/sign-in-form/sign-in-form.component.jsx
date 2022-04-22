@@ -31,7 +31,7 @@ const SignInForm = () => {
     event.preventDefault();
 
     try {
-      const {user} = await singInAuthUserWithEmailAndPassword(
+      await singInAuthUserWithEmailAndPassword(
         email,
         password
       );
@@ -39,8 +39,8 @@ const SignInForm = () => {
       resetFormFiels();
     } catch (error) {
       if (
-        error.code == "auth/wrong-password" ||
-        error.code == "auth/user-not-found"
+        error.code === "auth/wrong-password" ||
+        error.code === "auth/user-not-found"
       ) {
         alert("Wrong email or password");
       } else {
