@@ -7,7 +7,7 @@ const addCartItem = (cartItems, productToAdd) => {
   );
   if (existingCartItem) {
     return cartItems.map((cartItem) =>
-      cartItem.id == productToAdd.id
+      cartItem.id === productToAdd.id
         ? { ...cartItem, quantity: cartItem.quantity + 1 }
         : cartItem
     );
@@ -24,7 +24,7 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
     return cartItems.filter((cartItem) => cartItem.id !== cartItemToRemove.id);
   }
   return cartItems.map((cartItem) =>
-    cartItem.id == cartItemToRemove.id
+    cartItem.id === cartItemToRemove.id
       ? { ...cartItem, quantity: cartItem.quantity - 1 }
       : cartItem
   );
